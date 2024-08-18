@@ -4,3 +4,6 @@ This a simple machine learning project that I had made for house price predictio
 ## Current Features:
 - Used sci-kit learn to use linear regression model
 - Tkinter for building the UI
+
+## Preview:
+![preview](image.png)

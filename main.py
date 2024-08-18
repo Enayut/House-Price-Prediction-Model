@@ -70,9 +70,17 @@ def predict_house_price():
         prediction = model.predict(input_df)
         
         # Show the prediction result
-        result.set(f"The predicted house price is: {prediction[0]:.2f}")
+        result.set(f"The predicted house price is: {convert_to_lakhs_or_crores(prediction[0])} Ruppees")
     except Exception as e:
         messagebox.showerror("Error", str(e))
+
+def convert_to_lakhs_or_crores(number):
+    if number >= 10**7:  # 1 crore = 10,000,000
+        return f"{number / 10**7:.2f} crores"
+    elif number >= 10**5:  # 1 lakh = 100,000
+        return f"{number / 10**5:.2f} lakhs"
+    else:
+        return str(number)
 
 # Create the main window
 root = tk.Tk()
